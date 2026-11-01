@@ -690,9 +690,14 @@ the `ashare` extra to make it available:
 
 ```bash
 pip install --upgrade "vibe-trading-ai[ashare]"
-# For an existing uv tool installation:
+# For a uv tool installation that previously used only the base package:
 uv tool install --force --python 3.12 "vibe-trading-ai[ashare]"
 ```
+
+For uv tool users, `--force` rebuilds the existing tool environment. Keep any
+extras you already use when adding `ashare` (for example,
+`"vibe-trading-ai[ashare,deepseek]"`) and repeat any existing `--with` arguments
+in that command.
 
 `mootdx` is not included in the base install or the `ashare` extra. Its legacy
 loader is explicit-only and retired from automatic fallback; installing its

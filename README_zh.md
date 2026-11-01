@@ -575,9 +575,13 @@ BaoStock 是可选的、免 token 的 TCP 日线数据源，安装 `ashare` extr
 
 ```bash
 pip install --upgrade "vibe-trading-ai[ashare]"
-# 已使用 uv tool 安装的用户：
+# 原先只安装基础包的 uv tool 用户：
 uv tool install --force --python 3.12 "vibe-trading-ai[ashare]"
 ```
+
+uv tool 的 `--force` 会重建现有工具环境。添加 `ashare` 时须同时保留原先使用的
+其他 extra（例如 `"vibe-trading-ai[ashare,deepseek]"`），并在命令中重复原有的
+`--with` 参数，以保留这些附加依赖。
 
 基础安装和 `ashare` extra 都不包含 `mootdx`。它的旧加载器仅供显式指定，
 已退出自动回退链；安装 SDK 并不能保证与 TDX 服务器协议兼容。无法导入 `mootdx`
